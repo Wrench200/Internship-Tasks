@@ -1,0 +1,124 @@
+<!-- component -->
+<!-- Code on GiHub: https://github.com/vitalikda/form-floating-labels-tailwindcss -->
+<style>
+    .-z-1 {
+        z-index: -1;
+    }
+
+    .origin-0 {
+        transform-origin: 0%;
+    }
+
+    input:focus~label,
+    input:not(:placeholder-shown)~label,
+    textarea:focus~label,
+    textarea:not(:placeholder-shown)~label,
+    select:focus~label,
+    select:not([value='']):valid~label {
+        /* @apply transform; scale-75; -translate-y-6; */
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+        --tw-scale-x: 0.75;
+        --tw-scale-y: 0.75;
+        --tw-translate-y: -1.5rem;
+    }
+
+    input:focus~label,
+    select:focus~label {
+        /* @apply text-black; left-0; */
+        --tw-text-opacity: 1;
+        color: rgba(0, 0, 0, var(--tw-text-opacity));
+        left: 0px;
+    }
+</style>
+
+<div class="min-h-screen bg-gray-100 p-0 sm:p-12">
+    <div class="mx-auto max-w-md px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
+        <h1 class="text-2xl font-bold mb-8">Create Report</h1>
+        <form id="form" novalidate>
+            <div class="relative z-0 w-full mb-5">
+                <input type="text" name="title" placeholder=" " required
+                    class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" />
+                <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter Title</label>
+                <span class="text-sm text-red-600 hidden" id="error">Title is required</span>
+            </div>
+
+            <div class="relative z-0 w-full mb-5">
+                <select name="type" value="" onclick="this.setAttribute('value', this.value);"
+                    class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                    <option value="" selected disabled hidden></option>
+                    <option value="bug">Bug</option>
+                    <option value="feature">Feature</option>
+
+                </select>
+                <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Type</label>
+                <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+            </div>
+
+            <div class="relative z-0 w-full mb-5">
+                <select name="type" value="" onclick="this.setAttribute('value', this.value);"
+                    class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                    <option value="" selected disabled hidden></option>
+                    <option value="critical">Critical</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+                <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Severity</label>
+                <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+            </div>
+
+
+
+
+            <!-- <div class="relative z-0 w-full mb-5">
+                <select name="select" value="" onclick="this.setAttribute('value', this.value);"
+                    class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200">
+                    <option value="" selected disabled hidden></option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                    <option value="4">Option 4</option>
+                    <option value="5">Option 5</option>
+                </select>
+                <label for="select" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Select an
+                    option</label>
+                <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+            </div> -->
+
+            <div class="flex flex-row space-x-4">
+                <div class="relative z-0 w-full mb-5">
+                    <input type="text" name="lastOccurrence" placeholder=" " onclick="this.setAttribute('type', 'date');"
+                        class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" />
+                    <label for="lastOccurrence" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">lastOccurrence</label>
+                    <span class="text-sm text-red-600 hidden" id="error">lastOccurrence is required</span>
+                </div>
+            </div>
+            <div class="relative z-0 w-full mb-5">
+                <input type="text" name="createdby" placeholder=" " required
+                    class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" />
+                <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter Name</label>
+                <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+            </div>
+
+           
+
+            <div class="relative z-0 w-full mb-5">
+                <textarea type="text" name="description" placeholder=" "
+                    class="pt-3 pb-2 pr-12 block h-32 w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200" ></textarea>
+                
+                <label for="duration" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Description</label>
+                <span class="text-sm text-red-600 hidden" id="error">Description is required</span>
+            </div>
+
+            <button class="button">
+                <p class="submit">submit</p>
+            
+            </button>
+        </form>
+    </div>
+</div>
+
